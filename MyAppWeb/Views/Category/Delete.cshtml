@@ -1,0 +1,37 @@
+﻿
+@model Category
+<form method="post">
+    <div class="border p-3 m-4">
+        <div class="row pb-3">
+            <h2 class="text-primary"> update category</h2>
+            <hr />
+
+
+        </div>
+        <input type="hidden" asp-for="Id"/>
+        <div class="row mb-3">
+            <div asp-validation-summary="All"></div>  
+            <label asp-for="Name">enter name</label>
+            <input disabled asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span> 
+        </div>
+        <div class="row mb-3">
+           <label asp-for="DisplayOrder"> enter order </label>
+           <input disabled asp-for="DisplayOrder"  class="form-control"/>
+            <span asp-validation-for="DisplayOrder" class="text-danger"></span> 
+        </div>
+        <button class="btn btn-primary" type="submit">Delete</button>
+
+    </div>
+    <a asp-action="Index" asp-controller="Category">Back to list</a>
+
+</form>
+
+
+<!--  for client said validation code below  -->
+
+@section scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
